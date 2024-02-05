@@ -44,14 +44,15 @@
           </div>
         </li>
 
-        <li class="nav-item cursor-pointer">
-          <span class="nav-link" v-if="siteStore.getColorMode === 'dark'" @click="changeColorMode('light')">
-            <i class="bi bi-brightness-high"></i>
-          </span>
-
-          <span class="nav-link" v-if="siteStore.getColorMode === 'light'" @click="changeColorMode('dark')">
-            <i class="bi bi-moon-fill"></i>
-          </span>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Theme: {{ String(siteStore.getColorMode).charAt(0).toUpperCase() }}{{ String(siteStore.getColorMode).slice(1) }}
+          </a>
+          <div class="dropdown-menu dropdown-menu-end">
+            <span class="dropdown-item cursor-pointer" @click="changeColorMode('scrolly')">Scrolly</span>
+            <span class="dropdown-item cursor-pointer" @click="changeColorMode('dark')">Dark</span>
+            <span class="dropdown-item cursor-pointer" @click="changeColorMode('light')">Light</span>
+          </div>
         </li>
 
       </ul>

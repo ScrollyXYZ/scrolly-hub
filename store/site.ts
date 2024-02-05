@@ -6,7 +6,7 @@ export const useSiteStore = defineStore({
 
   state: () => {
     return {
-      colorMode: "dark",
+      colorMode: "scrolly",
       fileUploadEnabled: true,
       showOnlyMasterPosts: useLocalStorage('showOnlyMasterPosts', "false"),
       slippage: "0.5", // percentage (%)

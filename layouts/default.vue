@@ -17,6 +17,7 @@
       <Meta name="twitter:image" :content="$config.projectUrl+$config.previewImage" />
     </Head>
 
+    <div id="cloud-intro">
     <NavbarDesktop v-if="!isMobile" />
     <NavbarMobile v-if="isMobile" :lSidebar="lSidebar" :rSidebar="rSidebar" />
 
@@ -33,6 +34,7 @@
         <SidebarRight :rSidebar="rSidebar" :isMobile="isMobile" />
         
       </div>
+    </div>
     </div>
 
     <!-- Connect Wallet modal -->

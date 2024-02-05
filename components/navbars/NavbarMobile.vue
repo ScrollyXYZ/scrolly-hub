@@ -8,6 +8,7 @@
 
       <NuxtLink class="navbar-brand mx-auto" to="/">
         <img src="/img/favicon.png" alt="Chat logo" height="40">
+        <span class="navbar-brand-text ms-2 align-middle">Scrolly Hub</span>
       </NuxtLink>
 
       <button @click="toggleRightSidebar" class="nav-item btn navbar-toggler nav-btn-right" type="button">

@@ -1,5 +1,6 @@
 @import "./dark.css";
 @import "./light.css";
+@import "./scrolly.css";
 
 @font-face {
   font-family: 'GlitterySnowfall';
@@ -7,12 +8,12 @@
 }
 
 :root {
-  --bs-primary: #0a58ca !important; /* TODO: Replace is with your primary color */
+  --bs-primary: #007ced !important; /* TODO: Replace is with your primary color */
   --bs-primary-rgb: 10, 88, 202; /* TODO: This should be an RGB version of --bs-primary hex color */
-  --bs-btn-disabled-border-color: #0a58ca; /* TODO: Replace is with your primary color */
-  --bs-link-color: #0a58ca; /* TODO: Replace is with your primary color */
-  --bs-nav-pills-link-active-bg: #0a58ca !important; /* TODO: Replace is with your primary color */
-  --bs-link-color: #0a58ca; /* TODO: Replace is with your primary color */
+  --bs-btn-disabled-border-color: #007ced; /* TODO: Replace is with your primary color */
+  --bs-link-color: #007ced; /* TODO: Replace is with your primary color */
+  --bs-nav-pills-link-active-bg: #007ced !important; /* TODO: Replace is with your primary color */
+  --bs-link-color: #007ced; /* TODO: Replace is with your primary color */
   --bs-link-hover-color: #3e83ea; /* TODO: A slightly darker shade of the primary color */
   --bs-blue: #1d3b53;
   --bs-indigo: #6610f2;
@@ -47,7 +48,7 @@
   --bs-dark-rgb: 11, 10, 18;
   --bs-orange-rgb: 253, 126, 20;
   --bs-mode-rgb: 255, 255, 255;
-  --bs-primary-text: #0a58ca;
+  --bs-primary-text: #007ced;
   --bs-secondary-text: #6c757d;
   --bs-success-text: #146c43;
   --bs-info-text: #087990;
@@ -115,6 +116,24 @@
   --bs-breakpoint-xl: 1200px;
   --bs-breakpoint-xxl: 1400px;
   --bs-table-bg: var(--bs-mode) !important;
+}
+
+@keyframes wind {
+  0% {
+    background-position: 0 200px, 0 300px, 100px 250px;
+  }
+  100% {
+    background-position: 1000px 200px, 1200px 300px, 1100px 250px;
+  }
+}
+
+#cloud-intro {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: url(/css/clouds/clouds1000.png);
+  background: url(/css/clouds/clouds1000.png) 0 200px, url(/css/clouds/clouds1200_1.png) 0 300px, url(/css/clouds/clouds1000_blur3.png) 100px 250px;
+  animation: wind 20s linear infinite;
 }
 
 .alert-primary {
@@ -342,7 +361,7 @@ a:hover {
 /* @todo Add your custom navbar background color */
 /*
 .navbar-bg-custom {
-  background: linear-gradient(40deg,#ff6ec4,#0a58ca);
+  background: linear-gradient(40deg,#ff6ec4,#007ced);
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -363,7 +382,7 @@ a:hover {
 }
 
 .navbar-mobile {
-  background: var(--bs-body-bg);
+  background: transparent;
 }
 
 .navbar-toggler {
