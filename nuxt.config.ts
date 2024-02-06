@@ -79,8 +79,8 @@ export default defineNuxtConfig({
       imagekitEndpoint: process.env.IMAGEKIT_ENDPOINT,
       imagekitPublicKey: process.env.IMAGEKIT_PUBLIC_KEY,
       ipfsGateway: "https://cloudflare-ipfs.com/ipfs/",
-      keysAddress: "", // FriendKeys contract address 
-      keysFeatured: ["tempe", "tekr"],
+      keysAddress: "0x8FF82d2b0ab704Ba2AB5a567f32F1447A6158260", // FriendKeys contract address 
+      keysFeatured: ["scrolly", "tempe", "tekr"],
       linkPreviews: process.env.LINK_PREVIEW_SERVICE || "vercel", // "netlify", "vercel", or "microlink" (or leave empty for no link previews)
       lpTokenAddress: "", // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: "LP tokens", // LP token symbol
@@ -89,7 +89,7 @@ export default defineNuxtConfig({
       marketplaceNftCollectionBaseUrl: "https://element.market/assets/scroll/", // url (append nft address to it)
       newsletterLink: "",
       nftDefaultRatio: 1, // default ratio for the NFT price bonding curve
-      nftLaunchpadBondingAddress: "", // NFT launchpad with bonding curve contract address
+      nftLaunchpadBondingAddress: "0x81aDd7359f2B95276F8542f2a0acD7ECD2Ae9349", // NFT launchpad with bonding curve contract address
       nftLaunchpadLatestItems: 4, // number of latest NFTs to show in the NFT launchpad
       orbisTest: false, // if true, test context will be used instead of the production one
       orbisTestContext: "kjzl6cwe1jw145tfqv2eqv8tiz6puo27meyz4smz40atppuc13tulqca87k35z2", // test context
