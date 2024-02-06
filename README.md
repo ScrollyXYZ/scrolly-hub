@@ -21,15 +21,15 @@ If you want to use optional features such as GIFs and image upload, make sure to
 Make sure to also select the proper serverless functions services in your environment variables, for example:
 
 ```bash
-FILE_UPLOAD_SERVICE=netlify
-LINK_PREVIEW_SERVICE=netlify
+FILE_UPLOAD_SERVICE=vercel
+LINK_PREVIEW_SERVICE=vercel
 ```
 
 You can also set these in the Nuxt config file (`nuxt.config.ts`).
 
 ## GIFs (Tenor)
 
-If you want to have GIF search implemented, create your own Tenor API Key on Google Cloud Console. Follow the instructions here: https://developers.google.com/tenor/guides/quickstart. 
+If you want to have GIF search implemented, create your own Tenor API Key on Google Cloud Console. Follow the instructions here: https://developers.google.com/tenor/guides/quickstart#setup. 
 
 Then enter the key in environment variables (`TENOR_KEY`).
 
@@ -37,14 +37,16 @@ Then enter the key in environment variables (`TENOR_KEY`).
 
 To support image uploads on IPFS please create a key/token on Spheron Storage: https://app.spheron.network/#/storage 
 
-Then add this key (and your bucket ID/name) to your environment variables:
+Then create a bucket on Spheron (you'll create it by manually uploading an image on Spheron).
+
+Finally, add this key (and your bucket ID/name) to your environment variables:
 
 ```bash
 SPHERON_BUCKET_NAME=
 SPHERON_STORAGE_TOKEN=
 ```
 
-Image uploads via Spheron work only if you have Netlify/Vercel background functions enabled (see `netlify/functions/imageUploader.js`).
+Image uploads via Spheron work only if you have Vercel background functions enabled (see `api/imageUploader.js`).
 
 ## Image upload fallback
 
