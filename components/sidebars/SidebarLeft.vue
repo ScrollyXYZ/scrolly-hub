@@ -54,6 +54,17 @@
 
           <ul class="list-group">
             <NuxtLink 
+              to="/memes-contest"
+              class="list-group-item cursor-pointer hover-color bg-light border-0" 
+              :class="$route.path.startsWith('/memes-contest') ? 'active' : ''" 
+              @click="closeLeftSidebar"
+            >
+              Memes contest
+            </NuxtLink>
+          </ul>
+
+          <ul class="list-group">
+            <NuxtLink 
               to="/memes-images"
               class="list-group-item cursor-pointer hover-color bg-light border-0" 
               :class="$route.path.startsWith('/memes-images') ? 'active' : ''" 

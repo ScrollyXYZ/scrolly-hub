@@ -60,6 +60,7 @@ export default defineNuxtConfig({
         "shill": "kjzl6cwe1jw14bm3okedjn07hw68f4j1lyy51rb5c3xdrjlg5z12z65urg09b8o",
         "nftLaunchpad": "kjzl6cwe1jw14a0plh1orm8vtnu8h8rpak2vluqi0thxnhkaeyxndlm3cegyps8",
         "friendKeys": "kjzl6cwe1jw149hodz72tacxkoytqe9m306smj8ia3pqtydx90rfny6hcnru8tv",
+        "memesContest": "kjzl6cwe1jw149aqdicd44b8xiupfgijcj1hjzksmzkb6huk033j2gxslioxuhs"
       },
       chatTokenAddress: "0xb65aD8d81d1E4Cb2975352338805AF6e39BA8Be8", // chat token address
       chatTokenImage: "https://sns.scrolly.xyz/assets/logo.67955946.png", // chat token image

@@ -1,13 +1,13 @@
 <template>
   <Head>
-    <Title>Images & NFTs | {{ $config.projectMetadataTitle }}</Title>
-    <Meta property="og:title" :content="'Images & NFTs | ' + $config.projectMetadataTitle" />
+    <Title>Memes Contest | {{ $config.projectMetadataTitle }}</Title>
+    <Meta property="og:title" :content="'Memes Contest | ' + $config.projectMetadataTitle" />
   </Head>
 
   <ChatFeed 
     class="mt-1" 
     :showQuotedPost="$config.showRepliesOnHomepage" 
-    :orbisContext="$config.chatChannels.memesImages" 
+    :orbisContext="$config.chatChannels.memesContest" 
   />
 </template>
 
@@ -15,7 +15,7 @@
 import ChatFeed from "../components/chat/ChatFeed.vue"
 
 export default {
-  name: "MemesImages",
+  name: "MemesContest",
 
   components: {
     ChatFeed
