@@ -85,8 +85,8 @@ export default defineNuxtConfig({
       linkPreviews: process.env.LINK_PREVIEW_SERVICE || "vercel", // "netlify", "vercel", or "microlink" (or leave empty for no link previews)
       lpTokenAddress: "", // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: "LP tokens", // LP token symbol
-      marketplacePostNftUrl: "https://element.market/assets/scroll/0xb5A9c6096a2A5d761337ae29C018218BCfeeEf73",
-      marketplacePostNftItemUrl: "https://element.market/assets/scroll/0xb5A9c6096a2A5d761337ae29C018218BCfeeEf73/", // url (append nft id to it)
+      marketplacePostNftUrl: "https://element.market/assets/scroll/0xa9cfa4e8EA79537F5893f45c3B1491A2f7B54e7E",
+      marketplacePostNftItemUrl: "https://element.market/assets/scroll/0xa9cfa4e8EA79537F5893f45c3B1491A2f7B54e7E/", // url (append nft id to it)
       marketplaceNftCollectionBaseUrl: "https://element.market/assets/scroll/", // url (append nft address to it)
       newsletterLink: "",
       nftDefaultRatio: 1, // default ratio for the NFT price bonding curve
