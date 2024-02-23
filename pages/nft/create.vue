@@ -121,10 +121,8 @@
           v-model="ratio"
         />
         <div id="ratioHelp" class="form-text">
-          Price for mint #1 will be {{ getLessDecimals(calculatePrice(2, ratio)) }} {{ $config.tokenSymbol }}, 
-          for mint #5 will be {{ getLessDecimals(calculatePrice(5, ratio)) }} {{ $config.tokenSymbol }},
-          for mint #15 will be {{ getLessDecimals(calculatePrice(15, ratio)) }} {{ $config.tokenSymbol }}, 
-          for mint #30 will be {{ getLessDecimals(calculatePrice(30, ratio)) }} {{ $config.tokenSymbol }}, etc.
+          If ratio is 1, the price for mint #1 will be 0.000025 ETH. The price will increase to 0.00009 ETH by mint #27 and stay 
+          almost flat since then.
         </div>
       </div>
 
