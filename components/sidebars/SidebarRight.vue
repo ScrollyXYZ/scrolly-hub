@@ -29,8 +29,20 @@
         <div class="card-header bg-light">Get a username</div>
         <div class="card-body sidebar-card-body">
           <p class="card-text">
-            Get yourself a .scrolly username via 
-            <a target="_blank" href="https://sns.scrolly.xyz/">Scrolly Name Service</a>!
+
+            <span>
+              Register a .scrolly username via 
+              <a target="_blank" href="https://sns.scrolly.xyz/">Scrolly Name Service</a>!
+            </span>
+
+            <br />
+            <br />
+
+            <span class="mt-3">
+              Get yourself some $SCROLLY tokens via 
+              <a target="_blank" href="https://izumi.finance/trade/swap">Iziswap, here</a>.
+            </span>
+            
           </p>
         </div>
       </div>
