@@ -19,7 +19,7 @@
         <i class="bi bi-arrow-left-circle cursor-pointer" @click="$router.back()"></i>
       </p>
 
-      <h3 class="mb-4 mt-3">Create Bonding NFT Collection</h3>
+      <h3 class="mb-4 mt-3">Create Classic NFT Collection</h3>
 
       <div class="d-flex justify-content-center mb-3" v-if="waitingData">
         <span class="spinner-border spinner-border-lg" role="status" aria-hidden="true"></span>
