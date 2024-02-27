@@ -24,7 +24,10 @@
       
       <div class="mb-3">
         <NuxtLink class="btn btn-outline-primary btn-sm" to="/nft/create">
-          <i class="bi bi-plus-circle"></i> Create
+          <i class="bi bi-plus-circle"></i> Create Bonding
+        </NuxtLink>
+        <NuxtLink class="btn btn-outline-primary btn-sm" to="/nft/createclassic">
+          <i class="bi bi-plus-circle"></i> Create Classic
         </NuxtLink>
         <button class="btn btn-outline-primary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#searchNftModal">
           <i class="bi bi-search"></i> Find
