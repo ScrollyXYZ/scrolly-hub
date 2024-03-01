@@ -126,6 +126,17 @@
                 <i class="bi bi-rocket-takeoff"></i> NFT Launchpad
               </NuxtLink>
             </li>
+            <!-- Domain Names -->
+            <li
+              class="nav-item p-1"
+              v-if="$config.showFeatures.domainname"
+              @click="closeLeftSidebar"
+            >
+              <a class="nav-link" :href="$config.domainUrl" target="_blank">
+                <i class="bi bi-box2"></i> Scrolly's Domains
+                <small><i class="bi bi-box-arrow-up-right ms-1"></i></small>
+              </a>
+            </li>
             <!-- Notifications -->
             <li
               v-if="isActivated"
@@ -293,16 +304,6 @@
             >
               <a class="nav-link" :href="$config.governanceUrl" target="_blank">
                 <i class="bi bi-box2"></i> Governance
-                <small><i class="bi bi-box-arrow-up-right ms-1"></i></small>
-              </a>
-            </li>
-            <li
-              class="nav-item p-1"
-              v-if="$config.showFeatures.domainname"
-              @click="closeLeftSidebar"
-            >
-              <a class="nav-link" :href="$config.Domainname" target="_blank">
-                <i class="bi bi-box2"></i> Domain Names
                 <small><i class="bi bi-box-arrow-up-right ms-1"></i></small>
               </a>
             </li>

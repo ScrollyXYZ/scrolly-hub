@@ -118,6 +118,7 @@ export default defineNuxtConfig({
       projectDescription:
         "Scrolly Hub is a web3 place for all-things around the Scrolly web3 community.",
       projectTwitter: "https://twitter.com/scrollyxyz",
+      domainUrl: "https://sns.scrolly.xyz", // domain url
       projectUrl: "https://hub.scrolly.xyz", // without trailing slash!
       punkMinterAddress: "0xE806C55bd917Ccf93d66CE814e242878fc230CA2", // punk domain minter contract address
       punkNumberOfPrices: 6, // number of different prices (based on domain length), usually 1 (price()) or 5 (price1char() - price5char())
