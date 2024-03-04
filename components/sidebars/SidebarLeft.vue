@@ -129,7 +129,7 @@
             <!-- Domain Names -->
             <li
               class="nav-item p-1"
-              v-if="$config.showFeatures.domainname"
+              v-if="$config.showFeatures.domainName"
               @click="closeLeftSidebar"
             >
               <a class="nav-link" :href="$config.domainUrl" target="_blank">

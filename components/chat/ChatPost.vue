@@ -94,6 +94,10 @@
 
         <IggyPostMint :post="post" :parsedText="parsedText" v-if="isActivated" />
 
+        <span v-if="isActivated && !isCurrentUserAuthor && $config.showFeatures.tipping" class="cursor-pointer hover-color ms-2" data-bs-toggle="modal" :data-bs-target="'#sendTipModal'+$.uid">
+          <i class="bi bi-coin" /> Tip
+        </span>
+
         <span v-if="post.master" class="cursor-pointer hover-color ms-2" data-bs-toggle="modal" :data-bs-target="'#replyModal'+post.stream_id">
           <i class="bi bi-reply" /> Reply
         </span>
@@ -106,6 +110,18 @@
     </div>
   </div>
 
+  <TokenTipModal 
+    :componentId="$.uid" 
+    :masterPostId="post.master" 
+    :recipientDomain="authorDomain" 
+    :recipientAddress="authorAddress" 
+    :repliedPostId="post.stream_id" 
+    tokenAddress="0xb65ad8d81d1e4cb2975352338805af6e39ba8be8" 
+    tokenName="Scrolly" 
+    tokenSymbol="SCROLLY" 
+    :tokenDecimals="18" 
+    :tokenAmount="69"
+  />
 
   <!-- Reply Modal -->
   <div class="modal fade" :id="'replyModal'+post.stream_id" tabindex="-1" :aria-labelledby="'replyModalLabel'+post.stream_id" aria-hidden="true">
@@ -174,6 +190,7 @@ import sanitizeHtml from 'sanitize-html';
 import { useEthers, shortenAddress } from 'vue-dapp';
 import { useToast } from "vue-toastification/dist/index.mjs";
 import { useUserStore } from '~/store/user';
+import TokenTipModal from "~/components/TokenTipModal.vue";
 import ProfileImage from "~/components/profile/ProfileImage.vue";
 import IggyPostMint from "~/components/minted-posts/IggyPostMint.vue";
 import MintedPostImage from '~/components/minted-posts/MintedPostImage.vue';
@@ -194,7 +211,8 @@ export default {
     ChatQuote,
     IggyPostMint,
     MintedPostImage,
-    ProfileImage
+    ProfileImage,
+    TokenTipModal
   },
 
   data() {

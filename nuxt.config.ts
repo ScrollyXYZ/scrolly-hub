@@ -66,6 +66,8 @@ export default defineNuxtConfig({
           "kjzl6cwe1jw149hodz72tacxkoytqe9m306smj8ia3pqtydx90rfny6hcnru8tv",
         memesContest:
           "kjzl6cwe1jw149aqdicd44b8xiupfgijcj1hjzksmzkb6huk033j2gxslioxuhs",
+        tippingAlerts:
+          "kjzl6cwe1jw148e16hgprcsp07xoplt89mcxhdj6x0d0jwgplsdtq36hq7nexh8",
       },
       chatTokenAddress: "0xb65aD8d81d1E4Cb2975352338805AF6e39BA8Be8", // chat token address
       chatTokenImage: "https://sns.scrolly.xyz/assets/logo.67955946.png", // chat token image
@@ -129,6 +131,7 @@ export default defineNuxtConfig({
         // show/hide features in sidebars (if you have too many "true", make the sidebar scrollable --> sidebarLeftSticky: false)
         activityPoints: false,
         airdrop: false,
+        domainName: true,
         friendKeys: false,
         governance: false,
         newsletter: false,
@@ -138,7 +141,7 @@ export default defineNuxtConfig({
         stake: false,
         sendTokens: false,
         spotify: true,
-        domainname: true,
+        tipping: false,
       },
       showRepliesOnHomepage: true, // show replies on the homepage
       sidebarLeftSticky: true, // make the left sidebar sticky (always visible)
