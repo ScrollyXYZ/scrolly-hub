@@ -226,6 +226,13 @@
               </NuxtLink>
             </li>
 
+            <!-- Search Posts -->
+            <li class="nav-item p-1" @click="closeLeftSidebar">
+              <NuxtLink class="nav-link" :class="$route.path.startsWith('/search-posts') ? 'active' : ''" aria-current="page" to="/search-posts">
+                <i class="bi bi-search"></i> Search Posts
+              </NuxtLink>
+            </li>
+
             <!-- Stake & Earn -->
             <li
               class="nav-item p-1"
@@ -315,7 +322,7 @@
                 aria-current="page"
                 to="/find-user"
               >
-                <i class="bi bi-search"></i> Find User
+                <i class="bi bi-binoculars"></i> Find User
               </NuxtLink>
             </li>
 
