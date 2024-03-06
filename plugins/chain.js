@@ -1,29 +1,40 @@
 import { ethers } from 'ethers';
-import { getRpcs, getRpcs2 } from "~/utils/rpcUtils";
+
+const chains = [
+  { 
+    chainId: 534352, 
+    name: "Scroll", 
+    currency: "ETH", 
+    rpc1: "https://rpc.scroll.io", 
+    rpc2: "https://1rpc.io/scroll", 
+    blockExplorer: "https://scrollscan.com"
+  }
+];
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig() // access env vars like this: config.alchemyPolygonKey
 
   function getChainName(chainId) {
-    if (chainId === 1) {
-      return "Ethereum";
-    } else if (chainId === 534352) {
-      return "Scroll";
-    } else {
-      return "Unsupported Network";
+    let chain = chains.find(chain => chain.chainId == chainId);
+
+    if (chain) {
+      return chain.name;
     }
+    
+    return "Unsupported Network";
   }
 
   function getFallbackProvider(networkId) {
     let mainRpc = config.rpcCustom;
+    let chain = chains.find(chain => chain.chainId == networkId);
 
     if (!mainRpc) {
-      mainRpc = getRpcs()[networkId];
+      mainRpc = chain.rpc1;
     }
 
     let urls = [
-      // getRpcs2()[networkId],
-      mainRpc
+      mainRpc, // main rpc
+      //chain.rpc2 // alternative rpc
     ];
 
     if (urls) {
@@ -34,29 +45,44 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  function switchChain(networkName) {
-    let method;
-    let networkId;
-    let params;
+  function getRpcByChainId(chainId) {
+    let chain = chains.find(chain => chain.chainId == chainId);
+    return chain.rpc1;
+  }
 
-    if (networkName == "Ethereum") {
-      method = "wallet_switchEthereumChain"
-      params = [{ chainId: "0x1" }] 
-    } else if (networkName == "Scroll") {
-      networkId = 534352;
-      method = "wallet_addEthereumChain"
-      params = [{ 
-        blockExplorerUrls: [ "https://scrollscan.com" ],
-        chainId: ethers.utils.hexValue(networkId),
-        chainName: networkName,
-        nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
-        rpcUrls: [getRpcs2()[networkId]]
-      }] 
-    }
+  async function switchOrAddChain(ethereum, networkName) {
+    // get network id from chains
+    let chain = chains.find(chain => chain.name == networkName);
+    let chainId = chain.chainId;
 
-    return { 
-      method: method, 
-      params: params
+    try {
+      await ethereum.request({
+        "method": "wallet_switchEthereumChain",
+        "params": [
+          {
+            "chainId": ethers.utils.hexValue(chainId)
+          }
+        ]
+      });
+    } catch (error) {
+      if (error.code === 4902) {
+        await ethereum.request({
+          "method": "wallet_addEthereumChain",
+          "params": [
+            {
+              "chainId": ethers.utils.hexValue(chainId),
+              "chainName": networkName,
+              "nativeCurrency": {
+                "name": chain.currency,
+                "symbol": chain.currency,
+                "decimals": 18
+              },
+              "rpcUrls": [chain.rpc2],
+              "blockExplorerUrls": [chain.blockExplorer]
+            }
+          ]
+        });
+      }
     }
   }
 
@@ -64,8 +90,8 @@ export default defineNuxtPlugin(() => {
     provide: {
       getChainName: (chainId) => getChainName(chainId),
       getFallbackProvider: (chainId) => getFallbackProvider(chainId),
-      switchChain: (chainName) => switchChain(chainName)
+      getRpcByChainId: (chainId) => getRpcByChainId(chainId),
+      switchOrAddChain: (ethereum, networkName) => switchOrAddChain(ethereum, networkName)
     }
   }
 });
-
