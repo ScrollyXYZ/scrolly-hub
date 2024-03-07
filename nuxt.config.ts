@@ -141,7 +141,7 @@ export default defineNuxtConfig({
         stake: false,
         sendTokens: false,
         spotify: true,
-        tipping: false,
+        tipping: true,
       },
       showRepliesOnHomepage: true, // show replies on the homepage
       sidebarLeftSticky: true, // make the left sidebar sticky (always visible)

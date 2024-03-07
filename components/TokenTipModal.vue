@@ -57,7 +57,7 @@ import { useUserStore } from '~/store/user';
 export default {
   name: "TokenTipModal",
   props: [
-    "componentId", "masterPostId", "recipientDomain", "recipientAddress", "repliedPostId", "repliedPostTags", 
+    "componentId", "masterPostId", "postContext", "recipientDomain", "recipientAddress", "repliedPostId", "repliedPostTags", 
     "tokenAddress", "tokenName", "tokenSymbol", "tokenDecimals", "tokenAmount"
   ],
 
@@ -112,7 +112,7 @@ export default {
             master: masterId, // the main post in the thread
             reply_to: this.repliedPostId, // important: reply_to needs to be filled out even if the reply is directly to the master post
             body: "I have tipped you " + this.amount + " " + this.tokenSymbol + "!", 
-            context: this.$config.orbisContext,
+            context: this.postContext,
             //tags: this.repliedPostTags
           }
 

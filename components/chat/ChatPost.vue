@@ -113,6 +113,7 @@
   <TokenTipModal 
     :componentId="$.uid" 
     :masterPostId="post.master" 
+    :postContext="getOrbisContext"
     :recipientDomain="authorDomain" 
     :recipientAddress="authorAddress" 
     :repliedPostId="post.stream_id" 
