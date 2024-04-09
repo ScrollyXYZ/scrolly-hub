@@ -171,6 +171,7 @@ export default {
 
       } catch (e) {
         this.toast.error("Something went wrong while swapping tokens");
+        console.error(e);
         this.waiting = false;
         return;
       }

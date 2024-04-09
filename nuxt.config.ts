@@ -144,13 +144,13 @@ export default defineNuxtConfig({
         tipping: true,
       },
       showRepliesOnHomepage: true, // show replies on the homepage
-      sidebarLeftSticky: true, // make the left sidebar sticky (always visible)
+      sidebarLeftSticky: false, // make the left sidebar sticky (always visible)
       spotifyPlaylistId: "0sDahzOkMWOmLXfTMf2N4N", // enter just the ID of the playlist (not the full URL)
       stakingContractAddress: "", // this is also the stake/gov token address
       stakeTokenSymbol: "SCROLLY", // stake token symbol (governance token symbol)
       supportedChainId: 534352,
       swapPriceImpactMaxBps: 1000, // max price impact in bips (1 bps = 0.01%, 1000bps = 10%) for the swap function
-      swapRouterAddress: "", // iggy swap router contract address
+      swapRouterAddress: "0xAc8E2aE997f9a885aD8EC3405655372a2930576a", // iggy swap router contract address
       tenorApiKey: process.env.TENOR_KEY || "",
       tldName: ".scrolly",
       tokenAddress: null, // leave null if it's a native token of the chain

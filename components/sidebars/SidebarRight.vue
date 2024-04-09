@@ -50,6 +50,13 @@
       <!-- Referrals -->
       <ReferralWidget />
 
+      <!-- Swap tokens -->
+      <SimpleSwapWidget 
+        v-if="$config.swapRouterAddress && $config.showFeatures.swap" 
+        :routerAddress="$config.swapRouterAddress" 
+        :tokens="tokens" 
+        title="Swap tokens" />
+
       <!-- Playlist -->
       <div class="card m-2 bg-light" v-if="$config.showFeatures.spotify">
         <div class="card-header bg-light">{{ $config.projectName }} Playlist</div>
@@ -61,13 +68,6 @@
       <!-- Keys list 
       <KeysListWidget v-if="$config.keysAddress && $config.showFeatures.friendKeys" />
       -->
-
-      <!-- Swap tokens -->
-      <SimpleSwapWidget 
-        v-if="$config.swapRouterAddress && $config.showFeatures.swap" 
-        :routerAddress="$config.swapRouterAddress" 
-        :tokens="tokens" 
-        title="Swap tokens" />
 
       <!-- Random minted post(s) -->
       <MintedPostsWidget v-if="$config.showFeatures.randomMintedPosts" @closeRightSidebar="closeRightSidebar" />
