@@ -3,8 +3,8 @@
 @import "./scrolly.css";
 
 @font-face {
-  font-family: 'GlitterySnowfall';
-  src: url('/css/font/GlitterySnowfall.ttf')  format('truetype');
+  font-family: "GlitterySnowfall";
+  src: url("/css/font/GlitterySnowfall.ttf") format("truetype");
 }
 
 :root {
@@ -74,9 +74,16 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 116, 117, 121;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
   --bs-body-font-family: "DM Sans", sans-serif;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -119,21 +126,20 @@
 }
 
 @keyframes wind {
-  0% {
-    background-position: 0 200px, 0 300px, 100px 250px;
-  }
-  100% {
-    background-position: 1000px 200px, 1200px 300px, 1100px 250px;
-  }
 }
 
 #cloud-intro {
   position: relative;
   height: 100%;
   width: 100%;
-  background: url(/css/clouds/clouds1000.png);
-  background: url(/css/clouds/clouds1000.png) 0 200px, url(/css/clouds/clouds1200_1.png) 0 300px, url(/css/clouds/clouds1000_blur3.png) 100px 250px;
+  background: url(/css/clouds/background-scrollyverse.webp);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   animation: wind 20s linear infinite;
+  background-size: 100% 100%;
 }
 
 .alert-primary {
@@ -156,7 +162,8 @@ a:hover {
   background-color: var(--bs-mode) !important;
 }
 
-.btn:disabled, .btn.disabled {
+.btn:disabled,
+.btn.disabled {
   --bs-btn-border-color: var(--bs-primary);
   --bs-btn-disabled-border-color: var(--bs-primary);
   border-color: var(--bs-primary);
@@ -194,7 +201,8 @@ a:hover {
   background-color: rgba(var(--bs-primary-rgb), 0.1);
 }
 
-.btn-primary-soft:hover, .btn-primary-soft:focus {
+.btn-primary-soft:hover,
+.btn-primary-soft:focus {
   color: white;
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
@@ -266,12 +274,14 @@ a:hover {
   color: #0f1110;
 }
 
-.emoji-mart-static .emoji-mart-category-label, .emoji-mart-static .emoji-mart-category-label h3 {
+.emoji-mart-static .emoji-mart-category-label,
+.emoji-mart-static .emoji-mart-category-label h3 {
   background-color: #222529;
   color: #ffffff;
 }
 
-.form-control, .input-group-text {
+.form-control,
+.input-group-text {
   font-size: 1rem;
   padding: 0.5rem 1rem;
 }
@@ -296,10 +306,19 @@ a:hover {
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.5rem;
-  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition:
+    border-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .hover-color:hover {
@@ -336,7 +355,8 @@ a:hover {
   --bs-link-color: #495057;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: var(--bs-white);
   background-color: var(--bs-nav-pills-link-active-bg);
   border-color: var(--bs-nav-tabs-link-active-border-color);
@@ -367,7 +387,10 @@ a:hover {
 }
 */
 
-.navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:active,
+.navbar-brand:focus {
   color: var(--bs-primary);
 }
 
@@ -399,7 +422,7 @@ a:hover {
 .navbar-toggler:focus {
   /* Remove the shadow effect */
   border: 0 !important;
-  box-shadow: none !important;   
+  box-shadow: none !important;
 }
 
 .nav-pills {
@@ -420,11 +443,11 @@ a:hover {
 }
 
 .pfp-sizing {
-  padding: calc(var(--bs-gutter-x)* .1);
+  padding: calc(var(--bs-gutter-x) * 0.1);
 }
 
 .post-sizing {
-  padding-right: calc(var(--bs-gutter-x)* .4);
+  padding-right: calc(var(--bs-gutter-x) * 0.4);
 }
 
 .quote-reply-to {
@@ -454,7 +477,7 @@ a:hover {
 }
 
 .Vue-Toastification__toast--warning.custom-toast-bg {
-  background-color: #F7C04A;
+  background-color: #f7c04a;
 }
 
 /*
@@ -506,9 +529,7 @@ a:hover {
 
 /* Mobile only */
 @media only screen and (max-width: 767px) {
-  
   .scroll-500 {
     margin-bottom: 500px;
   }
-
 }
