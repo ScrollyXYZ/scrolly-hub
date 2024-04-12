@@ -9,8 +9,30 @@
         id="sidebar-nav"
         class="list-group border-0 rounded-0 text-sm-start min-vh-100"
       >
-        <!-- Mint/register a domain name -->
-        <NameMintWidget />
+        <!-- Register a domain name -->
+        <div class="card m-2 bg-light">
+          <div class="card-header bg-light">Get a username</div>
+          <div class="card-body sidebar-card-body">
+            <p class="card-text">
+              <span>
+                Register a .scrolly username via
+                <a target="_blank" href="https://sns.scrolly.xyz/"
+                  >Scrolly Name Service</a
+                >!
+              </span>
+              <br />
+              <br />
+              <span class="mt-3">
+                Get yourself some $SCROLLY tokens via
+                <a target="_blank" href="https://izumi.finance/trade/swap"
+                  >Iziswap, here</a
+                >.
+              </span>
+            </p>
+          </div>
+        </div>
+        <!-- Mint/register a domain name 
+        <NameMintWidget />-->
 
         <div class="card m-2 bg-light" v-if="isMobile">
           <div class="card-body sidebar-card-body mt-4">
