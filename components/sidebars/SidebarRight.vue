@@ -9,8 +9,6 @@
         id="sidebar-nav"
         class="list-group border-0 rounded-0 text-sm-start min-vh-100"
       >
-        <!-- Mint/register a domain name -->
-        <NameMintWidget />
 
         <div class="card m-2 bg-light" v-if="isMobile">
           <div class="card-body sidebar-card-body mt-4">
@@ -51,6 +49,24 @@
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Register a domain name -->
+        <div class="card m-2 bg-light">
+          <div class="card-header bg-light">Register a .scrolly name</div>
+          <div class="card-body sidebar-card-body">
+            <p class="card-text mb-2">
+
+              <span>
+                Get your own .scrolly username here: 
+                <a target="_blank" href="https://sns.scrolly.xyz/">
+                  Scrolly Name Service
+                  <i class="bi bi-box-arrow-up-right ms-1"></i>
+                </a>
+              </span>
+              
+            </p>
           </div>
         </div>
 
