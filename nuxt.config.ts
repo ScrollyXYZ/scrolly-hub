@@ -48,7 +48,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      activityPointsAddress: "0xC033aB3538c0C29bDBf8232B1cD4e4BB13054840",
+      activityPointsAddress: "0x9904CE72Cd7427F59bBe53bc69211081159fcf0a",
       airdropApAddress: "", // chat token claim for APs
       airdropClaimDomainsAddress: "", // chat token claim for domain holders
       blockExplorerBaseUrl: "https://scrollscan.com",
