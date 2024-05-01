@@ -65,6 +65,20 @@
 
             <ul class="list-group">
               <NuxtLink
+                to="/equilibre-memes"
+                class="list-group-item cursor-pointer hover-color bg-light border-0"
+                :class="
+                  $route.path.startsWith('/equilibre-memes') ? 'active' : ''
+                "
+                @click="closeLeftSidebar"
+              >
+                Equilibre meme contest
+              </NuxtLink>
+            </ul>
+
+            <!--
+            <ul class="list-group">
+              <NuxtLink
                 to="/memes-contest"
                 class="list-group-item cursor-pointer hover-color bg-light border-0"
                 :class="
@@ -75,6 +89,7 @@
                 Memes contest
               </NuxtLink>
             </ul>
+            -->
 
             <ul class="list-group">
               <NuxtLink

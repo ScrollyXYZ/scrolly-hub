@@ -68,6 +68,8 @@ export default defineNuxtConfig({
           "kjzl6cwe1jw149aqdicd44b8xiupfgijcj1hjzksmzkb6huk033j2gxslioxuhs",
         tippingAlerts:
           "kjzl6cwe1jw148e16hgprcsp07xoplt89mcxhdj6x0d0jwgplsdtq36hq7nexh8",
+        equilibreMemes: 
+          "kjzl6cwe1jw146bx6c9p4i6u27qcmfc6kx0qqf68gul23trbjvkiie854og9a08"
       },
       chatTokenAddress: "0xb65aD8d81d1E4Cb2975352338805AF6e39BA8Be8", // chat token address
       chatTokenImage: "https://sns.scrolly.xyz/assets/logo.67955946.png", // chat token image
