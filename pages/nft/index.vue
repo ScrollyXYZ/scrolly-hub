@@ -45,7 +45,7 @@
     <div class="row" v-if="featuredNfts.length > 0">
       <NuxtLink v-for="nft in featuredNfts" :key="nft.address" class="col-md-3 text-decoration-none" :to="'/nft/collection?id=' + nft.address">
         <div class="card border mb-3">
-          <img :src="nft.image" class="card-img-top" :alt="nft.name">
+          <Image :url="nft.image" :alt="nft.name" cls="card-img-top" />
           <div class="card-body rounded-bottom-3">
             <p class="card-text mb-1"><strong>{{ nft.name }}</strong></p>
             <small class="card-text">{{ formatPrice(nft.price) }} {{ $config.tokenSymbol }}</small>
@@ -59,7 +59,7 @@
     <div class="row">
       <NuxtLink v-for="nft in lastNfts" :key="nft.address" class="col-md-3 text-decoration-none" :to="'/nft/collection?id=' + nft.address">
         <div class="card border mb-3">
-          <img :src="nft.image" class="card-img-top" :alt="nft.name">
+          <Image :url="nft.image" :alt="nft.name" cls="card-img-top" />
           <div class="card-body rounded-bottom-3">
             <p class="card-text mb-1"><strong>{{ nft.name }}</strong></p>
             <small class="card-text">{{ formatPrice(nft.price) }} {{ $config.tokenSymbol }}</small>
@@ -89,6 +89,7 @@
 <script>
 import { ethers } from 'ethers';
 import { useEthers } from 'vue-dapp';
+import Image from "~/components/Image.vue";
 import SearchNftModal from '~/components/nft/SearchNftModal.vue';
 import { fetchCollection, storeCollection } from '~/utils/storageUtils';
 
@@ -108,6 +109,7 @@ export default {
   },
 
   components: {
+    Image,
     SearchNftModal
   },
 

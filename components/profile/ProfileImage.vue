@@ -1,5 +1,5 @@
 <template>
-  <img :src="imgPath" />
+  <img :src="parseImageLink" />
 </template>
 
 <script>
@@ -26,6 +26,16 @@ export default {
     } else if (this.image) {
       this.imgPath = this.image;
       sessionStorage.setItem(String(this.address).toLowerCase()+"-img", this.image);
+    }
+  },
+
+  computed: {
+    parseImageLink() {
+      let parsedImage = this.imgPath;
+      if (parsedImage && parsedImage.includes("ipfs://")) {
+        parsedImage = parsedImage.replace("ipfs://", this.$config.ipfsGateway);
+      }
+      return parsedImage;
     }
   },
 

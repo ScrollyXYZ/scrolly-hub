@@ -75,9 +75,9 @@
       </div>
 
       <div v-if="cImage" class="mb-4">
-        <img :src="cImage" class="img-thumbnail img-fluid" style="max-width: 100px;" />
+        <Image :url="cImage" alt="Image" cls="img-thumbnail img-fluid" style="max-width: 100px" />
         <br />
-        <small>If image didn't appear above, then something is wrong with the link you added.</small>
+        <small>If image didn't appear above, then something is wrong with the link you added (wait until the loading indicator completes). If you have an IPFS link, it also helps to cut/paste the same link a couple of times.</small>
       </div>
 
       <!-- Description -->
@@ -91,7 +91,7 @@
         <div id="cDescriptionHelp" class="form-text">Too long description means higher gas cost for storing it.</div>
       </div>
 
-      <!-- NFT Name -->
+      <!-- NFT Name 
       <div class="mb-4">
         <label for="nftName" class="form-label">NFT Name (can be changed later)</label>
         <input 
@@ -101,6 +101,7 @@
         />
         <div v-if="nftName" id="nftNameHelp" class="form-text">The first minted NFTs will be {{ nftName }} #1, {{ nftName }} #2, {{ nftName }} #3 etc.</div>
       </div>
+      -->
 
       <!-- Unique ID -->
       <div class="mb-4">
@@ -121,8 +122,10 @@
           v-model="ratio"
         />
         <div id="ratioHelp" class="form-text">
-          If ratio is 1, the price for mint #1 will be 0.000025 ETH. The price will increase to 0.00009 ETH by mint #27 and stay 
-          almost flat since then.
+          Price for mint #1 will be {{ getLessDecimals(calculatePrice(2, ratio)) }} {{ $config.tokenSymbol }}, 
+          for mint #5 will be {{ getLessDecimals(calculatePrice(5, ratio)) }} {{ $config.tokenSymbol }},
+          for mint #15 will be {{ getLessDecimals(calculatePrice(15, ratio)) }} {{ $config.tokenSymbol }}, 
+          for mint #30 will be {{ getLessDecimals(calculatePrice(30, ratio)) }} {{ $config.tokenSymbol }}, etc.
         </div>
       </div>
 
@@ -157,6 +160,7 @@
         @processFileUrl="insertImage"
         title="Upload your NFT image"
         infoText="Upload the NFT image."
+        storageType="ipfs"
         :componentId="$.uid"
         :maxFileSize="$config.fileUploadSizeLimit"
       />
@@ -171,6 +175,7 @@ import { ethers } from 'ethers';
 import { useEthers } from 'vue-dapp';
 import { useToast } from "vue-toastification/dist/index.mjs";
 import ConnectWalletButton from "~/components/ConnectWalletButton.vue";
+import Image from "~/components/Image.vue";
 import WaitingToast from "~/components/WaitingToast";
 import FileUploadModal from "~/components/storage/FileUploadModal.vue";
 import { useUserStore } from '~/store/user';
@@ -200,6 +205,7 @@ export default {
   components: {
     ConnectWalletButton,
     FileUploadModal,
+    Image,
     WaitingToast
   },
 
@@ -241,7 +247,7 @@ export default {
     },
 
     fieldsValid() {
-      return this.cName && this.cSymbol && this.cImage && this.cDescription && this.nftName && this.ratio;
+      return this.cName && this.cSymbol && this.cImage && this.cDescription && this.ratio;
     },
   },
 
@@ -286,7 +292,7 @@ export default {
             fetchReferrer(window), // referrer
             this.cleanDescription, // collection description
             this.cImage, // collection image
-            this.nftName, // NFT name
+            this.cName, // NFT name
             this.cName, // collection name
             this.cSymbol, // collection symbol
             this.uniqueId, // unique ID to easily find the NFT contract address

@@ -78,7 +78,7 @@ export default defineNuxtConfig({
       expiryCollections: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)
       expiryUsernames: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)
       favicon: "/img/favicon.png",
-      fileUploadEnabled: true, // enable/disable file uploads (enable only if external file storage is used, e.g. IPFS via Spheron)
+      fileUploadEnabled: true, // enable/disable file uploads (enable only if external file storage is used, e.g. IPFS via ThirdWeb)
       fileUploadSizeLimit: 1 * 1024 * 1024, // max file upload size in bytes (1 * 1024 * 1024 = 1 MB)
       fileUploadTokenService: process.env.FILE_UPLOAD_SERVICE || "vercel", // "netlify" or "vercel" (or leave empty for no file uploads)
       getPostsLimit: 30, // number of posts to fetch from Orbis in the getPosts() function
@@ -88,7 +88,9 @@ export default defineNuxtConfig({
       iggyPostStatsAddress: "0xde16C1c780f32cF8dB6F6F41a58B2D4e91B86fd3",
       imagekitEndpoint: process.env.IMAGEKIT_ENDPOINT,
       imagekitPublicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-      ipfsGateway: "https://cloudflare-ipfs.com/ipfs/",
+      ipfsGateway: "https://cloudflare-ipfs.com/ipfs/", 
+      ipfsGateway2: "https://ipfs.io/ipfs/", 
+      ipfsGateway3: "https://nftdegeniggy.myfilebase.com/ipfs/",
       keysAddress: "0x8FF82d2b0ab704Ba2AB5a567f32F1447A6158260", // FriendKeys contract address
       keysFeatured: ["scrolly", "tempe", "tekr"],
       linkPreviews: process.env.LINK_PREVIEW_SERVICE || "vercel", // "netlify", "vercel", or "microlink" (or leave empty for no link previews)
@@ -154,6 +156,7 @@ export default defineNuxtConfig({
       swapPriceImpactMaxBps: 1000, // max price impact in bips (1 bps = 0.01%, 1000bps = 10%) for the swap function
       swapRouterAddress: "0xAc8E2aE997f9a885aD8EC3405655372a2930576a", // iggy swap router contract address
       tenorApiKey: process.env.TENOR_KEY || "",
+      thirdwebClientId: process.env.THIRDWEB_CLIENT_ID || "",
       tldName: ".scrolly",
       tokenAddress: null, // leave null if it's a native token of the chain
       tokenDecimals: 18,

@@ -28,7 +28,7 @@
       <div class="row">
 
         <div class="col-md-5 text-center mb-3">
-          <img :src="cImage" class="img-fluid img-thumbnail rounded col-12" />
+          <Image :url="cImage" v-if="cImage" :cls="'img-fluid img-thumbnail rounded col-12'" :alt="cName" :key="cImage" />
 
           <div class="dropdown mt-3">
             <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -201,6 +201,7 @@ import { useEthers, shortenAddress } from 'vue-dapp';
 import { useToast } from "vue-toastification/dist/index.mjs";
 import ChatFeed from "~/components/chat/ChatFeed.vue";
 import ConnectWalletButton from "~/components/ConnectWalletButton.vue";
+import Image from "~/components/Image.vue";
 import WaitingToast from "~/components/WaitingToast";
 import AddImageToCollectionModal from "~/components/nft/collection/AddImageToCollectionModal";
 import ChangeCollectionPreviewModal from "~/components/nft/collection/ChangeCollectionPreviewModal";
@@ -241,6 +242,7 @@ export default {
     ChangeNftTypeModal,
     ChatFeed,
     ConnectWalletButton,
+    Image,
     RemoveImageFromCollectionModal,
     WaitingToast
   },

@@ -200,6 +200,7 @@
       @processFileUrl="insertImage"
       title="Change profile image"
       infoText="Upload a new profile picture."
+      storageType="ipfs"
       :componentId="$.uid"
       :maxFileSize="$config.fileUploadSizeLimit"
     />

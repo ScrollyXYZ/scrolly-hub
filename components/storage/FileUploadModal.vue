@@ -39,7 +39,8 @@
   
               <FileUploadInput 
                 btnCls="btn btn-primary"
-                :maxFileSize="maxFileSize" 
+                :maxFileSize="maxFileSize"
+                :storageType="storageType" 
                 @processUploadedFileUrl="processUploadedFileUrl"
               />
             </div>
@@ -73,7 +74,7 @@ import FileUploadInput from '~/components/storage/FileUploadInput.vue';
 
 export default {
   name: "FileUploadModal",
-  props: ["title", "componentId", "infoText", "maxFileSize"],
+  props: ["title", "componentId", "infoText", "maxFileSize", "storageType"],
   emits: ["processFileUrl"],
   components: { FileUploadInput },
 
