@@ -30,7 +30,7 @@
             <div v-if="imageUrl" class="mt-3">
               <Image :url="imageUrl" alt="Image" cls="img-thumbnail img-fluid" style="max-width: 100px;" />
               <br />
-              <small>If image didn't appear above, then something is wrong with the link you added.</small>
+              <small>If image didn't appear above, then something is wrong with the link you added (wait until the loading indicator completes). If you have an IPFS link, it also helps to cut/paste the same link a couple of times.</small>
             </div>
           </div>
 
