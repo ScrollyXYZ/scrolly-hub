@@ -6,7 +6,7 @@ const chains = [
     name: "Scroll", 
     currency: "ETH", 
     rpc1: "https://rpc.scroll.io", 
-    rpc2: "https://1rpc.io/scroll", 
+    rpc2: "https://rpc.ankr.com/scroll", 
     blockExplorer: "https://scrollscan.com"
   }
 ];

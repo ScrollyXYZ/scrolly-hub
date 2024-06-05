@@ -34,6 +34,9 @@
         <SidebarRight :rSidebar="rSidebar" :isMobile="isMobile" />
         
       </div>
+
+      <BadgeSticker v-show="badgeIsEligible" class="fixed-bottom" style="margin-right: 0; margin-left: auto;" />
+
     </div>
     </div>
 
@@ -113,6 +116,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { ethers } from 'ethers';
 import { MetaMaskConnector, CoinbaseWalletConnector, useEthers, useWallet } from 'vue-dapp';
 import { useNotificationsStore } from '~/store/notifications';
@@ -128,6 +132,7 @@ import { getActivityPoints } from '~/utils/balanceUtils';
 import { getDomainHolder, getDomainName } from '~/utils/domainUtils';
 import { storeReferrer, storeUsername } from '~/utils/storageUtils';
 import VerifyAccountOwnership from '~/components/VerifyAccountOwnership.vue';
+import BadgeSticker from '~/components/badge/BadgeSticker.vue';
 import ReferralModal from '~/components/referrals/ReferralModal.vue';
 import ChangeUsernameModal from '~/components/names/ChangeUsernameModal.vue';
 import FindUserModal from '~/components/search/FindUserModal.vue';
@@ -135,6 +140,7 @@ import FindUserModal from '~/components/search/FindUserModal.vue';
 export default {
   data() {
     return {
+      badgeIsEligible: false,
       breakpoint: 1000,
       isMounted: false,
       lSidebar: null,
@@ -145,6 +151,7 @@ export default {
   },
 
   components: {
+    BadgeSticker,
     ChangeUsernameModal,
     ChatSettingsModal,
     FindUserModal,
@@ -195,6 +202,9 @@ export default {
       selector: "[data-bs-toggle='popover']",
     })
 
+    // check badge eligibility
+    this.badgeCheckEligibility();
+
     // check if file upload is enabled
     this.siteStore.setFileUploadEnabled(this.$config.fileUploadEnabled);
 
@@ -221,6 +231,14 @@ export default {
       return false;
     },
 
+    isSupportedChain() {
+      if (this.chainId === this.$config.supportedChainId) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
     orbisAddress() {
       // address which is signed with Orbis
       if (this.userStore.getDidParent) {
@@ -235,6 +253,48 @@ export default {
     getActivityPoints,
     getDomainHolder,
     getDomainName, // imported function from utils/domainUtils.js
+
+    async badgeCheckEligibility() {
+      if (this.$config.badge.isLive && this.isSupportedChain && !this.badgeIsEligible) {
+
+        const checkUrl = `${this.$config.badge.apiBaseUrl}check?badge=${this.$config.badge.badgeContractAddress}&recipient=${this.address}`;
+
+        try {
+          const response = await axios.get(checkUrl);
+
+          if (response.data.eligibility) {
+            // check if badge already minted
+            const intrfc = [
+              "function hasBadge(address _user) external view returns (bool)"
+            ];
+
+            const contract = new ethers.Contract(this.$config.badge.badgeContractAddress, intrfc, this.signer);
+
+            try {
+              const hasBadge = await contract.hasBadge(this.address);
+
+              console.log("hasBadge:", hasBadge);
+
+              if (Boolean(hasBadge)) {
+                return this.badgeIsEligible = false;
+              } else {
+                return this.badgeIsEligible = true;
+              }
+            } catch (error) {
+              console.error(error);
+              return this.badgeIsEligible = false;
+            }
+          } else {
+            return this.badgeIsEligible = false;
+          }
+          
+        } catch (error) {
+          console.error(error);
+          return this.badgeIsEligible = false;
+        }
+        
+      }
+    },
 
     async connectCoinbase() {
 			await this.connectWith(this.coinbaseConnector);
@@ -448,12 +508,14 @@ export default {
 
       if (newVal) {
         this.fetchUserDomain();
+        this.badgeCheckEligibility();
       }
     },
 
     chainId(newVal, oldVal) {
       if (newVal) {
         this.fetchUserDomain();
+        this.badgeCheckEligibility();
       }
     },
 
