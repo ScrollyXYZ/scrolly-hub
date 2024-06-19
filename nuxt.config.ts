@@ -55,7 +55,8 @@ export default defineNuxtConfig({
         isLive: false,
         apiBaseUrl: "https://api.scrolly.xyz/api/badge/",
         badgeContractAddress: "",
-        defaultBadgeImage: "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmY9rG94E1qpc5NPs1zFTM1hCCTmv9kiRvMoZjGyxCJ2ZE/0.png",
+        defaultBadgeImage:
+          "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmY9rG94E1qpc5NPs1zFTM1hCCTmv9kiRvMoZjGyxCJ2ZE/0.png",
         graphqlUrl: "https://scroll-sepolia.easscan.org/graphql",
         profileRegistryAddress: "",
       },
@@ -76,8 +77,8 @@ export default defineNuxtConfig({
           "kjzl6cwe1jw149aqdicd44b8xiupfgijcj1hjzksmzkb6huk033j2gxslioxuhs",
         tippingAlerts:
           "kjzl6cwe1jw148e16hgprcsp07xoplt89mcxhdj6x0d0jwgplsdtq36hq7nexh8",
-        equilibreMemes: 
-          "kjzl6cwe1jw146bx6c9p4i6u27qcmfc6kx0qqf68gul23trbjvkiie854og9a08"
+        equilibreMemes:
+          "kjzl6cwe1jw14aatupsk2vajdwffgprn2yi17b7ej6lma9gff4apfkc50mrtqlr",
       },
       chatTokenAddress: "0xb65aD8d81d1E4Cb2975352338805AF6e39BA8Be8", // chat token address
       chatTokenImage: "https://sns.scrolly.xyz/assets/logo.67955946.png", // chat token image
@@ -96,8 +97,8 @@ export default defineNuxtConfig({
       iggyPostStatsAddress: "0xde16C1c780f32cF8dB6F6F41a58B2D4e91B86fd3",
       imagekitEndpoint: process.env.IMAGEKIT_ENDPOINT,
       imagekitPublicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-      ipfsGateway: "https://cloudflare-ipfs.com/ipfs/", 
-      ipfsGateway2: "https://ipfs.io/ipfs/", 
+      ipfsGateway: "https://cloudflare-ipfs.com/ipfs/",
+      ipfsGateway2: "https://ipfs.io/ipfs/",
       ipfsGateway3: "https://nftdegeniggy.myfilebase.com/ipfs/",
       keysAddress: "0x8FF82d2b0ab704Ba2AB5a567f32F1447A6158260", // FriendKeys contract address
       keysFeatured: ["scrolly", "tempe", "tekr"],
